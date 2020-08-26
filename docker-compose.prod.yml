@@ -1,0 +1,15 @@
+version: '3.7'
+
+# docker-compose override for production
+services:
+  backend:
+    build:
+      target: production
+    ports:
+      - ${SERVER_PORT}:3000
+    command: npm run start:prod
+  frontend:
+    build:
+      target: production
+    ports:
+      - ${FRONTEND_PORT}:80
