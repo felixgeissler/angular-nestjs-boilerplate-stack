@@ -7,7 +7,7 @@ services:
       target: development
     ports:
       - ${SERVER_PORT}:3000
-      - 9229:9229
+      - 9229:9223
     command: npm run start:debug
   frontend:
     build:
@@ -15,4 +15,7 @@ services:
     ports:
       - ${FRONTEND_PORT}:4200
     command: npm run start
+  postgres:
+    ports:
+      - ${DB_PORT}:5432
   
