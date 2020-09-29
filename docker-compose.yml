@@ -33,8 +33,6 @@ services:
   postgres:
     container_name: postgres
     image: postgres:12
-    ports:
-      - ${DB_PORT}:5432
     networks:
       - webnet
     environment:

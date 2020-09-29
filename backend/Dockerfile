@@ -2,6 +2,8 @@ FROM node:12.13-alpine As development
 
 WORKDIR /usr/src/app
 
+RUN npm install -g @nestjs/cli
+
 COPY package*.json ./
 
 RUN npm install --only=development
@@ -24,5 +26,7 @@ RUN npm install --only=production
 COPY . .
 
 COPY --from=development /usr/src/app/dist ./dist
+
+RUN npm run typeorm:migration:run
 
 CMD ["node", "dist/main"]

@@ -17,7 +17,7 @@
 
 1. Create a **.env** copy from **.env.example** (adjust e.g. ports)
 ```
-cp .env.example .env
+cp .env.dev.example .env
 ```
 2. Startup containers via docker-compose:
 ```
@@ -32,7 +32,7 @@ deploy & expose multiple docker setups from a single machine.
 1. Checkout/pull latest version of the project
 2. Create a **.env** copy from **.env.example**
 ```bash
-cp .env.example .env
+cp .env.prod.example .env
 ```
 3. Edit variables in **.env** file (e.g. ports / secrets)
 ```bash
@@ -48,12 +48,20 @@ docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 
 ## Tooling
 
-Tunnel to docker service shell, e.g. frontend:
+Tunnel to docker service shell:
 ```bash
-docker-compose exec frontend /bin/sh
+docker-compose exec SERVICE_NAME_HERE /bin/sh
 ```
 
-Note: [Maid](https://github.com/egoist/maid) tasks will be added soon.
+Additional CLI shortcuts a listed in the **maidfile.md** or via ([Maid](https://github.com/egoist/maid) required):
+```bash
+maid help
+```
+
+Execute [Maid](https://github.com/egoist/maid) tasks like:
+```bash
+maid TASKNAME
+```
 
 ### NPM Dependencies
 Installing npm dependencies via ```npm install``` won't mount the localy installed modules into the docker context, since the
