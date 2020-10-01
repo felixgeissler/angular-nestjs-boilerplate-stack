@@ -4,10 +4,11 @@ version: '3.7'
 services:
   backend:
     build:
-      target: production
+      dockerfile: prod.dockerfile
+    volumes:
+      - /usr/src/app/node_modules
     ports:
       - ${SERVER_PORT}:3000
-    command: npm run start:prod
   frontend:
     build:
       target: production

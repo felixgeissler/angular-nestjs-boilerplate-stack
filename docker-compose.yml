@@ -8,9 +8,6 @@ services:
       context: ./backend
     env_file:
       - .env
-    volumes:
-      - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
     networks:
       - webnet
     depends_on:

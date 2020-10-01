@@ -4,7 +4,10 @@ version: '3.7'
 services:
   backend:
     build:
-      target: development
+      dockerfile: dev.dockerfile
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - ${SERVER_PORT}:3000
       - 9229:9223
