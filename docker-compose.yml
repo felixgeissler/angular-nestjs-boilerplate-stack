@@ -3,7 +3,6 @@ version: '3.7'
 # Main docker-compose.yml - used with corresponding overrides
 services:
   backend:
-    container_name: backend
     build:
       context: ./backend
     env_file:
@@ -14,7 +13,6 @@ services:
       - redis
       - postgres
   frontend:
-    container_name: frontend
     build:
       context: ./frontend
     env_file:
@@ -23,12 +21,10 @@ services:
       - ./frontend:/usr/src/app
       - /usr/src/app/node_modules
   redis:
-    container_name: redis
     image: redis:5
     networks:
       - webnet
   postgres:
-    container_name: postgres
     image: postgres:12
     networks:
       - webnet
